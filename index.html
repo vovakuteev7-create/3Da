@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>WoodMaster | Ручное изготовление изделий из дерева</title>
-    <!-- Google Fonts & Simple Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>CNC-Wood Art | Изделия из дерева на ЧПУ станке</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -16,8 +16,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FDF9F2;
-            color: #2C2418;
+            background-color: #FCF9F4;
+            color: #2B2A27;
             scroll-behavior: smooth;
             line-height: 1.5;
         }
@@ -32,14 +32,14 @@
             padding: 0 32px;
         }
 
-        /* Header & Nav */
+        /* Header */
         header {
-            background: rgba(253, 249, 242, 0.96);
+            background: rgba(252, 249, 244, 0.96);
             backdrop-filter: blur(8px);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #EADBC6;
+            border-bottom: 1px solid #E8E0D3;
             padding: 16px 0;
         }
 
@@ -54,11 +54,11 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            color: #5A3E2B;
+            color: #4A3B2C;
         }
         .logo span {
             font-weight: 400;
-            color: #B87C4E;
+            color: #C28A4E;
         }
 
         .nav-links {
@@ -69,18 +69,18 @@
         .nav-links a {
             text-decoration: none;
             font-weight: 500;
-            color: #3E2C1F;
+            color: #4A3B2C;
             transition: 0.2s;
             font-size: 1rem;
         }
         .nav-links a:hover {
-            color: #B87C4E;
+            color: #C28A4E;
         }
 
         /* Buttons */
         .btn {
             display: inline-block;
-            background: #5A3E2B;
+            background: #4A3B2C;
             color: white;
             padding: 12px 28px;
             border-radius: 40px;
@@ -94,23 +94,23 @@
         }
         .btn-outline {
             background: transparent;
-            border: 1.5px solid #5A3E2B;
-            color: #5A3E2B;
+            border: 1.5px solid #4A3B2C;
+            color: #4A3B2C;
         }
         .btn-outline:hover {
-            background: #5A3E2B;
+            background: #4A3B2C;
             color: white;
         }
         .btn:hover {
-            background: #3E2C1F;
+            background: #2D241C;
             transform: translateY(-2px);
             box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
             padding: 80px 0 70px;
-            background: linear-gradient(105deg, #FEF7EF 0%, #F7EBDD 100%);
+            background: linear-gradient(135deg, #FEFBF5 0%, #F5EDE2 100%);
         }
         .hero-grid {
             display: flex;
@@ -122,19 +122,19 @@
             flex: 1;
         }
         .hero-title {
-            font-size: 3.3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: #2C1A0F;
+            color: #2D241C;
         }
         .hero-title i {
-            color: #B87C4E;
+            color: #C28A4E;
             font-style: normal;
         }
         .hero-desc {
             font-size: 1.1rem;
-            color: #4F3E2C;
+            color: #5E5242;
             margin-bottom: 2rem;
             max-width: 90%;
         }
@@ -153,10 +153,11 @@
             box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
             width: 100%;
             object-fit: cover;
-            aspect-ratio: 1 / 0.9;
+            aspect-ratio: 1 / 0.85;
+            background: #E0D3C2;
         }
 
-        /* Section General */
+        /* Section Common */
         section {
             padding: 80px 0;
         }
@@ -164,178 +165,149 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2C1A0F;
+            font-weight: 700;
+            color: #2D241C;
         }
         .section-sub {
             text-align: center;
-            color: #7B5F44;
+            color: #8B765A;
             margin-bottom: 3rem;
             font-size: 1.1rem;
         }
 
-        /* Services / Products Grid */
-        .services-grid {
+        /* Products Grid (4 карточки по модели из free-stl/cnc-info) */
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 1rem;
         }
-        .service-card {
+        .product-card {
             background: white;
             border-radius: 28px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            border: 1px solid #EFE3D4;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: #DCC9B2;
-            box-shadow: 0 20px 30px -12px rgba(90,62,43,0.12);
-        }
-        .service-icon {
-            font-size: 2.8rem;
-            color: #B87C4E;
-            margin-bottom: 1rem;
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .service-card p {
-            color: #5A4A36;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-        }
-        .gallery-item {
-            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 12px 20px -10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            background: #fff;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #EDE3D6;
+            display: flex;
+            flex-direction: column;
         }
-        .gallery-item:hover {
-            transform: scale(1.02);
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 32px -12px rgba(0,0,0,0.15);
+            border-color: #D4C2AE;
         }
-        .gallery-item img {
+        .product-image {
             width: 100%;
             height: 260px;
             object-fit: cover;
             display: block;
-            transition: 0.3s;
+            background: #DFD2C1;
         }
-        .gallery-caption {
-            padding: 1rem;
-            text-align: center;
-            font-weight: 500;
-            background: white;
-            color: #3E2C1F;
-        }
-
-        /* Advantages */
-        .advantages {
-            background: #F4EBE0;
-        }
-        .adv-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            text-align: center;
-        }
-        .adv-item {
+        .product-info {
+            padding: 1.5rem;
             flex: 1;
-            min-width: 180px;
-        }
-        .adv-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            font-family: 'Playfair Display', serif;
-            color: #B87C4E;
-        }
-        .adv-text {
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        /* Form / Consultation */
-        .form-section {
-            background: linear-gradient(135deg, #EEDFCB 0%, #F9F2E8 100%);
-            border-radius: 48px;
-            margin: 40px 0;
-            padding: 60px 40px;
-        }
-        .form-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
+            flex-direction: column;
         }
-        .form-info {
+        .product-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #3E2F20;
+        }
+        .product-desc {
+            color: #6B5A48;
+            margin-bottom: 1rem;
+            line-height: 1.45;
             flex: 1;
         }
-        .form-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .product-specs {
+            background: #F9F4EC;
+            border-radius: 20px;
+            padding: 0.8rem 1rem;
+            margin: 0.8rem 0;
+            font-size: 0.85rem;
         }
-        .form-info p {
-            margin-bottom: 1rem;
-            color: #3E2C1F;
+        .product-specs span {
+            font-weight: 600;
+            color: #C28A4E;
         }
-        .contact-detail {
+        .product-meta {
+            font-size: 0.85rem;
+            color: #8B765A;
             display: flex;
             align-items: center;
             gap: 12px;
-            margin: 20px 0;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
         }
-        .contact-detail i {
-            font-size: 1.4rem;
-            color: #5A3E2B;
+        .product-meta i {
+            color: #C28A4E;
+            width: 18px;
         }
-        .form-card {
+        .tag {
+            background: #EDE3D6;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #4A3B2C;
+        }
+
+        /* Технология ЧПУ */
+        .tech-showcase {
+            background: #F5EDE2;
+        }
+        .tech-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tech-text {
             flex: 1;
+        }
+        .tech-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .tech-text p {
+            margin-bottom: 1rem;
+            color: #5E5242;
+        }
+        .tech-icon-list {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .tech-icon-item {
+            text-align: center;
+        }
+        .tech-icon-item i {
+            font-size: 2rem;
+            color: #C28A4E;
+            margin-bottom: 0.3rem;
+        }
+        .tech-stats {
+            flex: 0.8;
             background: white;
-            padding: 2rem;
             border-radius: 32px;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
-        .input-group {
-            margin-bottom: 1.2rem;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #E2D4C5;
-            border-radius: 28px;
-            font-family: 'Inter', sans-serif;
-            background: #FEFAF5;
-            transition: 0.2s;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #B87C4E;
-            box-shadow: 0 0 0 3px rgba(184,124,78,0.1);
-        }
-        textarea {
-            resize: vertical;
-            border-radius: 24px;
-        }
-        .form-card button {
-            width: 100%;
-            font-size: 1rem;
-            padding: 14px;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #C28A4E;
         }
 
         /* Footer */
         footer {
-            background: #2C2418;
+            background: #2D241C;
             color: #CFC3B2;
             padding: 48px 0 24px;
             margin-top: 40px;
@@ -351,7 +323,6 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #E7D9CA;
-            margin-bottom: 0.5rem;
         }
         .footer-links {
             display: flex;
@@ -365,10 +336,11 @@
         .social i {
             font-size: 1.4rem;
             margin-left: 1rem;
+            cursor: pointer;
             transition: 0.2s;
         }
         .social i:hover {
-            color: #B87C4E;
+            color: #C28A4E;
         }
         .copyright {
             text-align: center;
@@ -378,42 +350,21 @@
         }
 
         @media (max-width: 780px) {
-            .container {
-                padding: 0 24px;
-            }
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
-            .hero-grid {
-                flex-direction: column;
-            }
-            .hero-content {
-                text-align: center;
-            }
-            .hero-desc {
-                max-width: 100%;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .form-section {
-                padding: 40px 24px;
-            }
+            .container { padding: 0 24px; }
+            .hero-title { font-size: 2.3rem; }
+            .nav-links { gap: 1rem; }
+            .hero-grid { flex-direction: column; text-align: center; }
+            .hero-desc { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .section-title { font-size: 2rem; }
         }
 
-        /* simple popup alert simulation (non-intrusive) */
         .toast-msg {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: #2C2418;
+            background: #2D241C;
             color: #F7EBDD;
             padding: 12px 24px;
             border-radius: 50px;
@@ -429,124 +380,166 @@
 
 <header>
     <div class="container nav-bar">
-        <div class="logo">Wood<span>Master</span></div>
+        <div class="logo">CNC<span>WoodArt</span></div>
         <ul class="nav-links">
             <li><a href="#home">Главная</a></li>
-            <li><a href="#services">Изделия</a></li>
-            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#models">Модели</a></li>
+            <li><a href="#technology">Технология</a></li>
             <li><a href="#contact">Контакты</a></li>
         </ul>
     </div>
 </header>
 
 <main>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1 class="hero-title">Создаём <i>тепло</i> и <i>стиль</i><br>из натурального дерева</h1>
-                <p class="hero-desc">Ручная работа, экологичные материалы и индивидуальный подход. Мебель, декор, кухонные принадлежности — дерево, которое служит поколениям.</p>
+                <h1 class="hero-title">Резьба по дереву на <i>ЧПУ станке</i></h1>
+                <p class="hero-desc">Уникальные 3D-модели, готовые к фрезеровке. Воплощаем любые дизайны — от изящных рамок до объёмных панно. Работаем с массивом дуба, ореха, бука и других пород.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn">Заказать проект</a>
-                    <a href="#gallery" class="btn btn-outline">Смотреть работы</a>
+                    <a href="#models" class="btn">Смотреть модели</a>
                 </div>
             </div>
             <div class="hero-image">
-                <!-- placeholder premium wood art image (generative style) -->
-                <img src="https://placehold.co/600x500/EFE3D4/5A3E2B?text=Wood+Master+Artisan" alt="Wooden handmade products" style="background: #EADBC6; object-fit: cover;">
+                <img src="https://placehold.co/600x500/D4C2AE/4A3B2C?text=CNC+Wood+Art" alt="ЧПУ фрезеровка по дереву">
             </div>
         </div>
     </section>
 
-    <!-- Services / Products -->
-    <section id="services">
+    <!-- 4 Модели с сайта free-stl / cnc-info.ru -->
+    <section id="models">
         <div class="container">
-            <h2 class="section-title">Что мы создаём</h2>
-            <div class="section-sub">Премиальные изделия из массива ценных пород</div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-couch"></i></div>
-                    <h3>Авторская мебель</h3>
-                    <p>Столы, стулья, комоды — дизайн под ваш интерьер, ручная столярная обработка.</p>
+            <h2 class="section-title">Готовые 3D-модели для ЧПУ</h2>
+            <div class="section-sub">Коллекция из каталога STL-моделей для фрезерных станков</div>
+            <div class="products-grid">
+                
+                <!-- 1. Овальная рамка (Модель 6163) -->
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/600x450/DFD2C1/4A3B2C?text=Овальная+рамка+CNC" alt="Овальная рамка для картин STL модель">
+                    <div class="product-info">
+                        <h3 class="product-title">Рамка овальная «Классика»</h3>
+                        <p class="product-desc">Элегантная овальная рамка с декоративным элементом в верхней части. Идеально подходит для оформления зеркал, семейных фотографий или живописных миниатюр.</p>
+                        <div class="product-specs">
+                            <span>📐 Размеры:</span> 400×160×19 мм<br>
+                            <span>🌳 Рекомендуемый материал:</span> дуб, орех, мебельный щит
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-microchip"></i> Формат STL <span class="tag">ArtCAM / Mach3</span>
+                            <i class="fas fa-download"></i> 63 скачивания
+                        </div>
+                        <div class="product-meta" style="margin-top: 4px;">
+                            <i class="fas fa-tree"></i> Для сосны (бюджет) или премиум-древесины
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>Кухонная утварь</h3>
-                    <p>Разделочные доски, подносы, подставки — долговечные и гигиеничные.</p>
+
+                <!-- 2. Панно "Цветы" (Модель 5113) -->
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/600x450/E0D3C2/4A3B2C?text=Панно+Цветы+STL" alt="Панно Цветы 3D модель">
+                    <div class="product-info">
+                        <h3 class="product-title">Панно «Цветущий луг»</h3>
+                        <p class="product-desc">Нежное объёмное панно с изображением цветов на фоне травы в прямоугольной рамке. Преобразит интерьер гостиной или спальни, добавив природной гармонии.</p>
+                        <div class="product-specs">
+                            <span>📐 Размеры:</span> 207×390×37 мм<br>
+                            <span>🌳 Рекомендуемый материал:</span> бук, дуб, сосна, лиственница
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-microchip"></i> STL для ArtCAM / NC Studio <span class="tag">3D рельеф</span>
+                            <i class="fas fa-download"></i> 55 скачиваний
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-palette"></i> Идеально для тонировки маслом или воском
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tree"></i></div>
-                    <h3>Декор & панно</h3>
-                    <p>Настенные часы, светильники, резные панно — уникальный акцент для дома.</p>
+
+                <!-- 3. Прямоугольная рамка "Верхний узор" (Модель 6144) -->
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/600x450/D9CCB8/4A3B2C?text=Рамка+прямоугольная+узор" alt="Рамка прямоугольная с узором">
+                    <div class="product-info">
+                        <h3 class="product-title">Рамка «Верхний узор»</h3>
+                        <p class="product-desc">Прямоугольная рамка с изысканным орнаментом в верхней части и узором «плетёнка» по краям. Эффектное обрамление для дипломов, вышивки или важных документов.</p>
+                        <div class="product-specs">
+                            <span>📐 Размеры:</span> 400×203×11 мм<br>
+                            <span>🌳 Рекомендуемый материал:</span> дуб, орех, мебельный щит
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-microchip"></i> Формат STL <span class="tag">Mach3 / NCStudio</span>
+                            <i class="fas fa-download"></i> 31 скачивание
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-star"></i> Сочетает строгость и барочный акцент
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-gift"></i></div>
-                    <h3>Эксклюзивные подарки</h3>
-                    <p>Именные шкатулки, игрушки, ручки — персонализация и высокое качество.</p>
+
+                <!-- 4. Круглая рамка "Якорь" (Модель 6114) -->
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/600x450/D4C2AE/4A3B2C?text=Рамка+круглая+Якорь" alt="Круглая рамка Якорь STL">
+                    <div class="product-info">
+                        <h3 class="product-title">Рамка круглая «Якорь»</h3>
+                        <p class="product-desc">Оригинальная круглая рамка в виде якоря и плетёного каната. Морская тематика придаёт интерьеру характер и индивидуальность. Отличный подарок для тех, кто связан с морем.</p>
+                        <div class="product-specs">
+                            <span>📐 Размеры:</span> 400×270×21 мм<br>
+                            <span>🌳 Рекомендуемый материал:</span> лиственница, сосна, карагач
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-microchip"></i> STL модель <span class="tag">3D фрезеровка</span>
+                            <i class="fas fa-download"></i> 47 скачиваний
+                        </div>
+                        <div class="product-meta">
+                            <i class="fas fa-anchor"></i> Символ надежности и путешествий
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: #8B765A; font-size: 0.9rem;">* Все модели адаптированы для работы на станках с ЧПУ (домашних и промышленных), совместимы с ArtCAM, Mach3, NC Studio. Пароль для архивов: cnc-info.ru [citation:1][citation:2][citation:3]</p>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" style="background: #FEF9F2;">
+    <!-- Технология ЧПУ фрезеровки -->
+    <section id="technology" class="tech-showcase">
         <div class="container">
-            <h2 class="section-title">Наши работы</h2>
-            <div class="section-sub">Каждое изделие — история в дереве</div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/400x320/D9CAB6/5A3E2B?text=Дубовый+стол" alt="Дубовый стол">
-                    <div class="gallery-caption">Массив дуба — обеденный стол</div>
+            <div class="tech-flex">
+                <div class="tech-text">
+                    <h3>Точность <i class="fas fa-cogs" style="color:#C28A4E"></i> и детализация</h3>
+                    <p>3D-фрезеровка на ЧПУ станке позволяет воспроизводить сложнейшие рельефы с микронной точностью. Мы работаем с массивами дерева, создавая как единичные экземпляры, так и небольшие серии. Каждая модель из каталога — это готовое решение для вашего производства или творческой мастерской.</p>
+                    <div class="tech-icon-list">
+                        <div class="tech-icon-item"><i class="fas fa-drafting-compass"></i><br>Точность до 0.1 мм</div>
+                        <div class="tech-icon-item"><i class="fas fa-layer-group"></i><br>3D рельеф любой сложности</div>
+                        <div class="tech-icon-item"><i class="fas fa-tachometer-alt"></i><br>Высокая скорость обработки</div>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/400x320/CBB99F/5A3E2B?text=Резное+панно" alt="Резное панно">
-                    <div class="gallery-caption">Ручная резьба, панно «Лесной сюжет»</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/400x320/E2D0B8/5A3E2B?text=Набор+досок" alt="Набор досок">
-                    <div class="gallery-caption">Набор разделочных досок, орех</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/400x320/F0E0CB/5A3E2B?text=Шкатулка" alt="Шкатулка">
-                    <div class="gallery-caption">Шкатулка из карельской березы</div>
+                <div class="tech-stats">
+                    <div class="stat-number">10+</div>
+                    <div>пород древесины в работе</div>
+                    <div class="stat-number" style="margin-top: 1rem;">24/7</div>
+                    <div>поддержка 3D-моделей</div>
+                    <div class="stat-number" style="margin-top: 1rem;">300+</div>
+                    <div>готовых STL-моделей</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advantages / Stats -->
-    <section class="advantages">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="adv-grid">
-                <div class="adv-item"><div class="adv-number">10+ лет</div><div class="adv-text">опыта в столярном деле</div></div>
-                <div class="adv-item"><div class="adv-number">100%</div><div class="adv-text">натуральное дерево, без ДСП</div></div>
-                <div class="adv-item"><div class="adv-number">индивидуально</div><div class="adv-text">каждый проект под вас</div></div>
-                <div class="adv-item"><div class="adv-number">гарантия</div><div class="adv-text">до 5 лет на изделия</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Consultation Form -->
+    <!-- Контакты (без формы заказа) -->
     <div class="container" id="contact">
-        <div class="form-section">
-            <div class="form-grid">
-                <div class="form-info">
-                    <h3>Обсудим ваш проект</h3>
-                    <p>Расскажите о своей идее, и мы создадим изделие, которое будет радовать вас каждый день. Бесплатный выезд мастера на замер (по городу) и консультация.</p>
-                    <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+7 (999) 123-45-67</span></div>
-                    <div class="contact-detail"><i class="fas fa-envelope"></i> <span>studio@woodmaster.ru</span></div>
-                    <div class="contact-detail"><i class="fab fa-whatsapp"></i> <span>Напишите в WhatsApp</span></div>
+        <div class="form-section" style="background: linear-gradient(135deg, #E8DDD0 0%, #F5EDE3 100%); border-radius: 48px; margin: 40px 0 60px; padding: 60px 40px;">
+            <div class="form-grid" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+                <div class="form-info" style="flex: 1;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #2D241C;">Свяжитесь с нами</h3>
+                    <p style="margin-bottom: 1.5rem; color: #5E5242;">Будем рады ответить на ваши вопросы о моделях, материалах и возможностях сотрудничества.</p>
+                    <div class="contact-detail" style="display: flex; align-items: center; gap: 12px; margin: 20px 0;"><i class="fas fa-phone-alt" style="font-size: 1.4rem; color: #4A3B2C;"></i> <span>+7 (999) 777-33-44</span></div>
+                    <div class="contact-detail" style="display: flex; align-items: center; gap: 12px; margin: 20px 0;"><i class="fas fa-envelope" style="font-size: 1.4rem; color: #4A3B2C;"></i> <span>cnc@woodart.ru</span></div>
+                    <div class="contact-detail" style="display: flex; align-items: center; gap: 12px; margin: 20px 0;"><i class="fab fa-whatsapp" style="font-size: 1.4rem; color: #4A3B2C;"></i> <span>Написать в WhatsApp</span></div>
                 </div>
-                <div class="form-card">
-                    <h3 style="margin-bottom: 1rem;">Оставьте заявку</h3>
-                    <form id="callbackForm">
-                        <div class="input-group"><input type="text" id="name" placeholder="Ваше имя" required></div>
-                        <div class="input-group"><input type="tel" id="phone" placeholder="Номер телефона" required></div>
-                        <div class="input-group"><textarea rows="3" id="message" placeholder="Опишите пожелания..."></textarea></div>
-                        <button type="submit" class="btn">Отправить →</button>
-                    </form>
-                    <p style="font-size: 0.75rem; margin-top: 1rem; color: #7B5F44;">Нажимая на кнопку, вы соглашаетесь с политикой обработки данных</p>
+                <div class="form-card" style="flex: 1; background: white; padding: 2rem; border-radius: 32px; box-shadow: 0 20px 30px -10px rgba(0,0,0,0.08); text-align: center;">
+                    <i class="fas fa-cube" style="font-size: 3rem; color: #C28A4E; margin-bottom: 1rem; display: inline-block;"></i>
+                    <h3 style="margin-bottom: 0.75rem; color: #2D241C;">Работаем над вашими идеями</h3>
+                    <p style="color: #6B5A48;">Для сотрудничества используйте контактные данные или напишите нам в мессенджеры. Мы всегда открыты к диалогу!</p>
                 </div>
             </div>
         </div>
@@ -557,32 +550,32 @@
     <div class="container">
         <div class="footer-content">
             <div>
-                <div class="footer-logo">WoodMaster</div>
-                <p style="margin-top: 8px;">Изделия из дерева с душой</p>
+                <div class="footer-logo">CNCWoodArt</div>
+                <p style="margin-top: 8px;">3D-фрезеровка по дереву</p>
             </div>
             <div class="footer-links">
                 <a href="#home">Главная</a>
-                <a href="#services">Изделия</a>
-                <a href="#gallery">Портфолио</a>
-                <a href="#contact">Связь</a>
+                <a href="#models">Модели</a>
+                <a href="#technology">Технология</a>
+                <a href="#contact">Контакты</a>
             </div>
             <div class="social">
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-telegram"></i>
                 <i class="fab fa-vk"></i>
-                <i class="fab fa-pinterest"></i>
+                <i class="fab fa-youtube"></i>
             </div>
         </div>
         <div class="copyright">
-            © 2025 WoodMaster — мастерская ручной работы. Все права защищены.
+            © 2025 CNCWoodArt — изготовление изделий из дерева на ЧПУ станке. Модели предоставлены по лицензии free-stl / cnc-info.ru
         </div>
     </div>
 </footer>
 
-<div id="toastMsg" class="toast-msg">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+<div id="toastMsg" class="toast-msg">Готовы помочь! Свяжитесь с нами любым удобным способом.</div>
 
 <script>
-    // Плавная прокрутка для навигации
+    // Плавная навигация
     document.querySelectorAll('.nav-links a, .hero-buttons .btn, .footer-links a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -599,71 +592,42 @@
         });
     });
 
-    // форма обратной связи (имитация отправки)
-    const form = document.getElementById('callbackForm');
+    // Социальные иконки
     const toast = document.getElementById('toastMsg');
-
     function showMessage(text) {
-        toast.textContent = text || "Спасибо! Мы свяжемся с вами в ближайшее время.";
+        toast.textContent = text;
         toast.style.opacity = '1';
-        setTimeout(() => {
-            toast.style.opacity = '0';
-        }, 3000);
+        setTimeout(() => { toast.style.opacity = '0'; }, 3000);
     }
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const nameInput = document.getElementById('name');
-        const phoneInput = document.getElementById('phone');
-        const msgInput = document.getElementById('message');
-
-        if (nameInput.value.trim() === '' || phoneInput.value.trim() === '') {
-            showMessage('Пожалуйста, укажите имя и номер телефона');
-            return;
-        }
-
-        // здесь могла бы быть реальная отправка на сервер, но имитируем успех
-        console.log('Заявка:', {
-            name: nameInput.value,
-            phone: phoneInput.value,
-            message: msgInput.value
-        });
-        showMessage('✅ Заявка принята! Менеджер свяжется с вами в течение часа.');
-        form.reset();
+    document.querySelectorAll('.social i').forEach(icon => {
+        icon.addEventListener('click', () => showMessage('Мы в соцсетях: присоединяйтесь!'));
     });
 
-    // Небольшой эффект для карточек с кнопками
-    const cards = document.querySelectorAll('.service-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transition = 'all 0.2s';
-        });
-    });
-
-    // Заменяем плейсхолдерные изображения на красивые деревянные темы? (оставляем с подписью, но выглядит аккуратно)
-    // Для рекламного сайта этого достаточно. Также динамически при клике на контакты иконки соцсетей 
-    // не ведут на реальные профили, но дают ощущение.
-    const socialIcons = document.querySelectorAll('.social i');
-    socialIcons.forEach(icon => {
-        icon.addEventListener('click', () => {
-            showMessage('🌲 Подписывайтесь на наши соцсети: все ссылки в разработке, но уже скоро!');
-        });
-    });
-    // для номера телефона и почты - копирование? можно маленький фикс
-    const phoneDetail = document.querySelector('.contact-detail i.fa-phone-alt')?.parentElement;
-    if(phoneDetail) {
-        phoneDetail.style.cursor = 'pointer';
-        phoneDetail.addEventListener('click', () => {
-            navigator.clipboard?.writeText('+7 (999) 123-45-67');
-            showMessage('Номер скопирован в буфер!');
+    // Копирование контактов
+    const phoneEl = document.querySelector('.contact-detail i.fa-phone-alt')?.parentElement;
+    if(phoneEl) {
+        phoneEl.style.cursor = 'pointer';
+        phoneEl.addEventListener('click', () => {
+            navigator.clipboard?.writeText('+7 (999) 777-33-44');
+            showMessage('Номер скопирован');
         });
     }
-    const mailDetail = document.querySelector('.contact-detail i.fa-envelope')?.parentElement;
-    if(mailDetail) {
-        mailDetail.style.cursor = 'pointer';
-        mailDetail.addEventListener('click', () => {
-            navigator.clipboard?.writeText('studio@woodmaster.ru');
-            showMessage('Email скопирован!');
+    const mailEl = document.querySelector('.contact-detail i.fa-envelope')?.parentElement;
+    if(mailEl) {
+        mailEl.style.cursor = 'pointer';
+        mailEl.addEventListener('click', () => {
+            navigator.clipboard?.writeText('cnc@woodart.ru');
+            showMessage('Email скопирован');
+        });
+    }
+    
+    // Добавим возможность скопировать WhatsApp (как текст)
+    const waEl = document.querySelector('.contact-detail i.fa-whatsapp')?.parentElement;
+    if(waEl) {
+        waEl.style.cursor = 'pointer';
+        waEl.addEventListener('click', () => {
+            navigator.clipboard?.writeText('+7 (999) 777-33-44');
+            showMessage('Номер для WhatsApp скопирован');
         });
     }
 </script>
