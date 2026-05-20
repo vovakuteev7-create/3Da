@@ -368,7 +368,7 @@
             }
         }
 
-        /* Стиль для новой ссылки (выделяется) */
+        /* Стиль для выделенных ссылок */
         .special-link {
             background: rgba(255, 217, 102, 0.15);
             border-left: 3px solid #ffd966;
@@ -484,7 +484,7 @@
             </div>
         </div>
 
-        <!-- Вкладка: Мои работы (с часами и стрелкой) -->
+        <!-- Вкладка: Мои работы (с часами) -->
         <div class="tab-content" id="works">
             <h2 style="color:#6ab1ff; margin-bottom: 0.5rem;">📁 Портфолио проектов</h2>
             
@@ -511,20 +511,20 @@
                 </div>
                 <div class="work-item">
                     <h3>✨ Тестовый полигон</h3>
-                    <p>Разработка прототипов интернет-магазина, лендинга для IT-студии и мобильного приложения.</p>
+                    <p>Экспериментальный сайт с новыми технологиями и креативными решениями. Регулярно обновляется.</p>
                     <a href="https://vovakuteev7-create.github.io/test/" target="_blank" class="work-link">
                         <i class="fas fa-external-link-alt"></i> Перейти на тестовый сайт →
                     </a>
                 </div>
                 <div class="work-item">
-                    <h3>⚡ Эксперименты на JSitor</h3>
-                    <p>Экспериментальный сайт с новыми технологиями и креативными решениями. Регулярно обновляется.</p>
-                    <a href="https://jsitor.com/" target="_blank" class="work-link">Мои сниппеты</a>
+                    <h3>🎨 Веб-эксперименты</h3>
+                    <p>Интересные веб-эффекты, анимации и нестандартные решения. Постоянно добавляю новые фичи.</p>
+                    <a href="https://vovakuteev7-create.github.io/wedftyu/" target="_blank" class="work-link">Посмотреть проект →</a>
                 </div>
                 <div class="work-item">
-                    <h3>🖌️ Интерактив на CodePen</h3>
-                    <p>Микро-приложения: конвертер валют, генератор паролей, 3D-фон и CSS-анимации.</p>
-                    <a href="https://codepen.io/" target="_blank" class="work-link">Коллекция Pen</a>
+                    <h3>🔤 Шрифтовой дизайн</h3>
+                    <p>Проект, посвящённый типографике и работе со шрифтами в вебе. Креативные решения и кастомные стили.</p>
+                    <a href="https://vovakuteev7-create.github.io/fonts/" target="_blank" class="work-link">Посмотреть проект →</a>
                 </div>
                 <div class="work-item">
                     <h3>🌐 StackBlitz SPA</h3>
@@ -532,8 +532,7 @@
                     <a href="https://stackblitz.com/" target="_blank" class="work-link">Демо-версия</a>
                 </div>
             </div>
-                <p style="margin-top: 20px; text-align: center; font-size: 0.9rem; opacity: 0.8;"><i class="fas fa-sync-alt"></i> Регулярно обновляю репозитории и добавляю новые фичи</p>
-            </div>
+            <p style="margin-top: 20px; text-align: center; font-size: 0.9rem; opacity: 0.8;"><i class="fas fa-sync-alt"></i> Регулярно обновляю репозитории и добавляю новые фичи</p>
         </div>
 
         <!-- Вкладка Завершение -->
@@ -577,18 +576,16 @@
         // ---------- ЧАСЫ: МОСКВА (UTC+3) и УСТЬ-ИЛИМСК (UTC+8) ----------
         function updateTimes() {
             const now = new Date();
-            const utc = now.getTime() + (now.getTimezoneOffset() * 60000); // смещение от UTC в миллисекундах
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
 
             // Москва: UTC+3
             const moscowTime = new Date(utc + 3 * 3600000);
             // Усть-Илимск: UTC+8
             const ustTime = new Date(utc + 8 * 3600000);
 
-            // Форматирование времени HH:MM:SS
             const formatClock = (date) => {
                 return date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
             };
-            // Форматирование даты
             const formatDate = (date) => {
                 return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', weekday: 'short' });
             };
@@ -599,17 +596,15 @@
             document.getElementById('ustDate').innerHTML = formatDate(ustTime);
         }
 
-        // ---------- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК (без конфликтов) ----------
+        // ---------- ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ----------
         function initTabs() {
             const tabs = document.querySelectorAll('.tab');
             const contents = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const targetId = tab.getAttribute('data-tab');
-                    // убираем активные классы
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
-                    // активируем текущую вкладку и контент
                     tab.classList.add('active');
                     const activeContent = document.getElementById(targetId);
                     if (activeContent) activeContent.classList.add('active');
@@ -617,36 +612,12 @@
             });
         }
 
-        // ---------- СТРЕЛКА / ПОКАЗ ВСЕХ РАБОТ (аккордеон) ----------
-        function initShowAllWorks() {
-            const btn = document.getElementById('showAllBtn');
-            const additionalBlock = document.getElementById('additionalWorks');
-            if (!btn || !additionalBlock) return;
-
-            btn.addEventListener('click', () => {
-                // Переключаем класс для отображения блока
-                const isOpen = additionalBlock.classList.contains('show');
-                if (!isOpen) {
-                    additionalBlock.classList.add('show');
-                    btn.classList.add('rotated');
-                    // небольшой скролл к открытому блоку для удобства
-                    setTimeout(() => {
-                        additionalBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                    }, 100);
-                } else {
-                    additionalBlock.classList.remove('show');
-                    btn.classList.remove('rotated');
-                }
-            });
-        }
-
         // ---------- ЗАПУСК ПРИ ЗАГРУЗКЕ ----------
         document.addEventListener('DOMContentLoaded', () => {
-            createStars();        // звёздное небо
-            updateTimes();       // показать время сразу
-            setInterval(updateTimes, 1000); // обновлять каждую секунду
-            initTabs();          // обработка вкладок
-            initShowAllWorks();  // кнопка со стрелкой открыть все работы
+            createStars();
+            updateTimes();
+            setInterval(updateTimes, 1000);
+            initTabs();
         });
     </script>
 </body>
